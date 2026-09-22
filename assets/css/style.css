@@ -1,1 +1,21 @@
+:root{
+    --cor-fundo: #F8F7FF;
+    --cor-cartoes: #FFFFFF;
+    --cor-texto: #1F1B2D;
+    --cor-roxo-principal: #6D28D9;
+    --cor-roxo-escuro: #3B0764;
+    --cor-roxo-claro: #EDE9FE;
 
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100%;
+    margin: 10px;
+    background-color: var(--cor-fundo);
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: var(--cor-texto);
+}
