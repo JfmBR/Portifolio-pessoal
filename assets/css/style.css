@@ -19,3 +19,25 @@ body{
     font-family: Verdana, Arial, Helvetica, sans-serif;
     color: var(--cor-texto);
 }
+
+header{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.introducao{
+    display: flex;
+    flex-direction: column;
+}
+
+header img{
+    border-radius: 50%;
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+}
+header ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
