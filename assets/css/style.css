@@ -20,6 +20,14 @@ body{
     color: var(--cor-texto);
 }
 
+:focus-visible{
+    outline-style: solid;
+    outline-width: 3px;
+    background-color: var(--cor-roxo-claro);
+    outline-color: var(--cor-roxo-escuro);
+    outline-offset: 2px;
+}
+
 header{
     margin: 10px;
 }
@@ -61,14 +69,8 @@ header{
 
 }
 
-.navegacao a:focus-visible{
-    outline-style: solid;
-    outline-width: 3px;
-    outline-color: var(--cor-roxo-escuro);
-    outline-offset: 2px;
-}
 
-header ul{
+.navegacao ul{
     display: flex;
     list-style: none;
     gap: 2em;
