@@ -85,3 +85,32 @@ header{
     margin: 0px;
 }
 
+#sobre-mim {
+    margin: 15px;
+
+}
+
+#sobre-mim p{
+    margin: 25px;
+    font-size: large;
+}
+
+#habilidades ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#habilidades figure{
+    margin: 10px;
+    text-align: center;
+    font-size: small;
+}
+
+.imagem img{
+    width: 50px;
+    height: auto;
+}
+
