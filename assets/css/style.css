@@ -24,13 +24,7 @@ body{
     color: var(--cor-texto);
 }
 
-:focus-visible{
-    outline-style: solid;
-    outline-width: 3px;
-    background-color: var(--cor-roxo-claro);
-    outline-color: var(--cor-roxo-escuro);
-    outline-offset: 2px;
-}
+
 
 header{
     margin: 10px;
@@ -40,12 +34,12 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
 }
 
 #titulo h1{
     margin-bottom: 10px;
-
+    
 }
 
 #titulo p{
@@ -65,6 +59,14 @@ header{
     border-radius: 20%;
     font-weight:bold;
     
+}
+
+:focus-visible{
+    outline-style: solid;
+    outline-width: 3px;
+    background-color: var(--cor-roxo-claro);
+    outline-color: var(--cor-roxo-escuro);
+    outline-offset: 2px;
 }
 
 .navegacao a:hover{
