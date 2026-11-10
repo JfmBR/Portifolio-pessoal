@@ -2,6 +2,23 @@
 
 > Este plano organiza todas as melhorias aprovadas no brainstorm. Cada fase pode ser implementada e revisada separadamente.
 
+## Situação
+
+| Fase | Situação |
+| --- | --- |
+| 1 a 5 | Implementadas |
+| 6 | Pendente. Depende da decisão de publicar o site. |
+
+### Diferenças entre o plano e o que foi implementado
+
+- **Selo "Estudando agora":** ficou só com JavaScript. O Django saiu porque a escolha entre Django e Flask ainda está pendente nos requisitos (seção 9).
+- **Nome do atributo de tema:** `data-tema="claro"` ou `"escuro"`, em português, no lugar de `data-theme`.
+- **Arquivo extra:** `rodape.js` cuida do ano do rodapé.
+- **Data dos cartões:** usa `pushed_at` (último envio de código) em vez de `updated_at`, que também muda com estrelas e edições de descrição.
+- **WhatsApp:** o link passou de `tel:` para `https://wa.me/`, que abre a conversa no aplicativo.
+- **Layout:** "Sobre Mim" e "Minha Jornada" usam duas colunas em telas largas.
+- **Linha do tempo:** usa as datas do currículo e do histórico do Git. Os cursos ficaram em uma lista sem data.
+
 ## 0. Visão geral
 
 | Fase | Tema | Resultado esperado |

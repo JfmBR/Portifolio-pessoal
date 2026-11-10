@@ -16,23 +16,43 @@ O projeto também faz parte do meu processo de aprendizado. Novas tecnologias e 
 
 O projeto está em desenvolvimento.
 
-Nesta etapa, estou construindo a primeira versão estática do portfólio, com:
+A página principal já possui:
 
-- apresentação pessoal;
-- objetivo profissional;
-- habilidades;
-- espaço reservado para projetos autorais;
-- canais de contato.
-
-A seção de projetos será atualizada quando houver projetos autorais prontos para apresentação.
+- apresentação com foto, botões de ação e efeito de digitação;
+- seção "Sobre Mim" com objetivo profissional;
+- linha do tempo "Minha Jornada" e cursos concluídos;
+- habilidades organizadas por grupo;
+- projetos carregados automaticamente do GitHub;
+- canais de contato;
+- tema claro e escuro;
+- layout responsivo para celulares, tablets e computadores.
 
 ## Tecnologias utilizadas
 
 - HTML5;
 - CSS3;
+- JavaScript (sem bibliotecas ou frameworks);
 - Git e GitHub.
 
-O JavaScript será utilizado quando houver uma necessidade concreta de interação na página.
+O JavaScript é usado para buscar os repositórios no GitHub, alternar o tema e criar as animações. A página continua legível com o JavaScript desligado.
+
+## Como um projeto aparece no portfólio
+
+A seção "Projetos" busca meus repositórios públicos na API do GitHub. Só aparecem os repositórios marcados com o topic `portfolio`.
+
+Para incluir um repositório:
+
+1. Abra o repositório no GitHub.
+2. Clique na engrenagem ao lado de "About".
+3. Em "Topics", adicione `portfolio`.
+4. Preencha a descrição. Se o projeto tiver um site publicado, preencha também o campo "Website".
+
+Observações:
+
+- Forks e repositórios arquivados não aparecem.
+- Se nenhum repositório tiver o topic, a seção "Projetos" fica oculta.
+- A lista fica guardada no navegador por 1 hora. Por isso, uma mudança no GitHub pode demorar até 1 hora para aparecer.
+- O topic e o nome de usuário ficam no início do arquivo `assets/js/github-repos.js`.
 
 ## Estrutura do projeto
 
@@ -43,9 +63,19 @@ Portifolio-pessoal/
 │   │   └── style.css
 │   ├── icons/
 │   ├── images/
+│   │   ├── eu.jpeg
+│   │   └── og-preview.png
 │   └── js/
-│       └── script.js
+│       ├── animacoes.js
+│       ├── digitacao.js
+│       ├── easter-egg.js
+│       ├── github-repos.js
+│       ├── navegacao.js
+│       ├── rodape.js
+│       └── tema.js
 ├── docs/
+│   ├── Curriculo_Joao_Francisco.pdf
+│   ├── PLANO_IMPLEMENTACAO.md
 │   └── REQUISITOS_PORTFOLIO.md
 ├── index.html
 └── README.MD
@@ -54,9 +84,16 @@ Portifolio-pessoal/
 - `index.html`: estrutura e conteúdo da página principal.
 - `assets/css`: estilos visuais do portfólio.
 - `assets/icons`: ícones utilizados na seção de habilidades.
-- `assets/images`: imagens pessoais e futuras imagens do site.
-- `assets/js`: comportamentos e interações em JavaScript.
-- `docs`: documentação de visão e requisitos do projeto.
+- `assets/images`: foto pessoal e imagem de prévia para compartilhamento.
+- `assets/js`: um arquivo por funcionalidade.
+  - `tema.js`: alterna entre tema claro e escuro e lembra a escolha.
+  - `navegacao.js`: destaca no menu a seção visível.
+  - `digitacao.js`: efeito de digitação na apresentação.
+  - `github-repos.js`: busca os repositórios e cria os cartões de projeto.
+  - `animacoes.js`: seções que aparecem ao rolar e brilho nos cartões.
+  - `rodape.js`: mantém o ano do rodapé atualizado.
+  - `easter-egg.js`: uma surpresa escondida.
+- `docs`: currículo, requisitos e plano de implementação.
 
 ## Como visualizar localmente
 
@@ -68,8 +105,6 @@ Nesta etapa não é necessário instalar dependências nem executar um servidor.
 
 ## Funcionalidades planejadas
 
-- layout responsivo para celulares, tablets e computadores;
-- melhorias de acessibilidade;
 - páginas detalhadas para projetos autorais;
 - área administrativa privada;
 - cadastro, edição e exclusão de projetos;
@@ -83,6 +118,8 @@ Os recursos planejados serão implementados gradualmente e podem mudar durante o
 ## Documentação
 
 Os requisitos e as decisões do produto estão registrados em [`docs/REQUISITOS_PORTFOLIO.md`](docs/REQUISITOS_PORTFOLIO.md).
+
+O plano das melhorias visuais e da integração com o GitHub está em [`docs/PLANO_IMPLEMENTACAO.md`](docs/PLANO_IMPLEMENTACAO.md).
 
 ## Autor
 
