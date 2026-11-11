@@ -111,6 +111,7 @@ Use só valores da escala. Exceções pontuais (como `2px` de ajuste ótico) dev
 | Registro | `.registro` (`<ol>`) | Linha do tempo em formato de histórico: data → evento |
 | Tabela | `.tabela` | Dados em colunas (ex.: cursos) |
 | Bloco | `.bloco` | Caixa com borda para itens independentes (projetos, mensagens) |
+| Notas do projeto | `.notas-projeto` (`<dl>`) | Contexto, desafio e aprendizado dentro do bloco de um projeto |
 | Lista de contato | `.lista-contato` | Links em linhas: rótulo → valor → seta |
 
 ### Setas

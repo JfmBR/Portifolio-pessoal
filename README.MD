@@ -55,6 +55,8 @@ Observações:
 - A lista fica guardada no navegador por 1 hora. Por isso, uma mudança no GitHub pode demorar até 1 hora para aparecer.
 - O topic e o nome de usuário ficam no início do arquivo `assets/js/github-repos.js`.
 
+Para mostrar um texto próprio no cartão (contexto, desafio e aprendizado), adicione uma entrada em `NOTAS_PROJETOS`, no início do mesmo arquivo. A chave é o nome exato do repositório.
+
 ## Estrutura do projeto
 
 ```text

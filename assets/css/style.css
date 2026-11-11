@@ -61,7 +61,7 @@
     --largura-maxima: 1120px;
     --largura-texto: 720px;
     --altura-topo: 56px;
-    --largura-rotulo: 9rem;
+    --largura-rotulo: 10.5rem;
 }
 
 /* Tema escuro escolhido pelo sistema (quando o visitante não escolheu "claro" no botão). */
@@ -638,6 +638,10 @@ main{
     line-height: 1.65;
 }
 
+#sobre-mim .secao-corpo > p + p{
+    margin-top: var(--espaco-4);
+}
+
 #objetivo{
     margin-top: var(--espaco-6);
 }
@@ -748,6 +752,27 @@ main{
     flex: 1;
     font-size: 0.9375rem;
     color: var(--cor-texto-suave);
+}
+
+/* Notas escritas à mão para um projeto (contexto, desafio, aprendizado). */
+.notas-projeto{
+    margin: 0px;
+    font-size: var(--tamanho-pequeno);
+}
+
+.notas-projeto > div{
+    padding-block: var(--espaco-2);
+    border-top: var(--borda) solid var(--cor-linha);
+}
+
+.notas-projeto dt{
+    font-family: var(--fonte-mono);
+    font-size: 0.75rem;
+    color: var(--cor-texto-suave);
+}
+
+.notas-projeto dd{
+    margin: 0px;
 }
 
 .etiquetas{

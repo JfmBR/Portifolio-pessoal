@@ -16,6 +16,16 @@
     const TEMPO_LIMITE = 10 * 1000;          // desiste da requisição depois de 10 segundos
     const MAXIMO_ETIQUETAS = 4;
 
+    // Textos escritos por mim sobre cada projeto. A chave é o nome exato do repositório.
+    // Projetos sem entrada aqui mostram apenas os dados do GitHub.
+    const NOTAS_PROJETOS = {
+        'Monitor-Postura-YOLO': [
+            ['Contexto', 'Projeto da faculdade em que eu precisava trabalhar com visão computacional.'],
+            ['Desafio', 'Montar a lógica por trás do código.'],
+            ['Aprendizado', 'Aprendi a usar muitas bibliotecas do Python.']
+        ]
+    };
+
     // Cores usadas pelo GitHub para cada linguagem (projeto Linguist).
     const CORES_LINGUAGEM = {
         'Python': '#3572A5',
@@ -179,6 +189,18 @@
 
         cartao.appendChild(criarElemento('h3', '', nome));
         cartao.appendChild(criarElemento('p', 'descricao', repo.descricao || 'Sem descrição.'));
+
+        const notas = NOTAS_PROJETOS[repo.nome];
+        if (notas) {
+            const listaNotas = criarElemento('dl', 'notas-projeto');
+            notas.forEach(function (nota) {
+                const linha = document.createElement('div');
+                linha.appendChild(criarElemento('dt', '', nota[0]));
+                linha.appendChild(criarElemento('dd', '', nota[1]));
+                listaNotas.appendChild(linha);
+            });
+            cartao.appendChild(listaNotas);
+        }
 
         const etiquetas = repo.topics
             .filter(function (topic) {
