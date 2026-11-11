@@ -7,7 +7,7 @@
         'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
         'b', 'a'
     ];
-    const CORES = ['#6D28D9', '#8B5CF6', '#A78BFA', '#C4B5FD', '#DDD6FE', '#F0ABFC'];
+    const CORES = ['#5B2A8C', '#7A45B0', '#B89CF0', '#8E6BC7', '#D8D5CC'];
     const DURACAO_CONFETE = 3000;
     const DURACAO_AVISO = 4000;
     const QUANTIDADE = 140;

@@ -1,93 +1,104 @@
 /* ==========================================================================
-   1. VARIÁVEIS (TOKENS)
-   Os valores abaixo valem para o tema claro.
+   DESIGN SYSTEM — "FICHA TÉCNICA"
+   As regras de uso estão em docs/DESIGN.md.
+
+   Sumário
+   1. Tokens (cores, tipografia, espaçamento, forma)
+   2. Base
+   3. Componentes
+   4. Topo e navegação
+   5. Hero
+   6. Seções
+   7. Rodapé
+   8. Easter egg
+   9. Movimento reduzido
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. TOKENS
    ========================================================================== */
 
 :root{
     color-scheme: light;
 
-    /* Cores */
-    --cor-fundo: #F8F7FF;
-    --cor-cartoes: #FFFFFF;
-    --cor-texto: #1F1B2D;
-    --cor-texto-suave: #5B5470;
-    --cor-roxo-principal: #6D28D9;
-    --cor-roxo-escuro: #3B0764;
-    --cor-roxo-claro: #EDE9FE;
-    --cor-borda: #E2DCF5;
-    --cor-botao: #6D28D9;
-    --cor-botao-hover: #5B21B6;
-    --cor-texto-botao: #FFFFFF;
-    --cor-foco: #3B0764;
-    --cor-topo: rgba(248, 247, 255, 0.78);
-    --cor-brilho: rgba(109, 40, 217, 0.10);
-    --opacidade-blob: 0.35;
+    /* Cores — tema claro ("papel") */
+    --cor-fundo: #F4F3EF;
+    --cor-superficie: #FBFAF7;
+    --cor-texto: #17151C;
+    --cor-texto-suave: #5C5865;
+    --cor-linha: #D8D5CC;
+    --cor-linha-forte: #17151C;
+    --cor-destaque: #5B2A8C;
+    --cor-destaque-suave: #ECE6F3;
+    --cor-texto-sobre-destaque: #FFFFFF;
     --filtro-icone-escuro: none;
 
     /* Tipografia */
-    --fonte-titulo: "Sora", "Segoe UI", Arial, sans-serif;
-    --fonte-texto: "Inter", "Segoe UI", Arial, sans-serif;
+    --fonte-texto: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+    --fonte-mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
 
-    /* Formas e sombras */
-    --raio-cartao: 16px;
-    --raio-pilula: 999px;
-    --sombra-suave: 0 1px 2px rgba(59, 7, 100, 0.06), 0 8px 24px rgba(59, 7, 100, 0.06);
-    --sombra-elevada: 0 2px 4px rgba(59, 7, 100, 0.08), 0 16px 40px rgba(59, 7, 100, 0.14);
+    --tamanho-rotulo: 0.8125rem;   /* 13px */
+    --tamanho-pequeno: 0.875rem;   /* 14px */
+    --tamanho-base: 1rem;          /* 16px */
+    --tamanho-destaque: 1.125rem;  /* 18px */
+
+    /* Espaçamento (escala de 4px) */
+    --espaco-1: 4px;
+    --espaco-2: 8px;
+    --espaco-3: 12px;
+    --espaco-4: 16px;
+    --espaco-5: 24px;
+    --espaco-6: 32px;
+    --espaco-7: 48px;
+    --espaco-8: 64px;
+
+    /* Forma */
+    --raio: 2px;
+    --borda: 1px;
 
     /* Medidas */
-    --largura-maxima: 1080px;
-    --altura-topo: 64px;
+    --largura-maxima: 1120px;
+    --largura-texto: 720px;
+    --altura-topo: 56px;
+    --largura-rotulo: 9rem;
 }
 
-/* Tema escuro escolhido pelo sistema (vale quando o visitante não escolheu "claro" no botão). */
+/* Tema escuro escolhido pelo sistema (quando o visitante não escolheu "claro" no botão). */
 @media (prefers-color-scheme: dark){
     :root:not([data-tema="claro"]){
         color-scheme: dark;
-        --cor-fundo: #0F0B1A;
-        --cor-cartoes: #1A1429;
-        --cor-texto: #EDEAF7;
-        --cor-texto-suave: #B4ABCB;
-        --cor-roxo-principal: #A78BFA;
-        --cor-roxo-escuro: #DDD6FE;
-        --cor-roxo-claro: #2A1F47;
-        --cor-borda: #2E2547;
-        --cor-botao: #7C3AED;
-        --cor-botao-hover: #6D28D9;
-        --cor-foco: #C4B5FD;
-        --cor-topo: rgba(15, 11, 26, 0.78);
-        --cor-brilho: rgba(167, 139, 250, 0.14);
-        --opacidade-blob: 0.28;
+        --cor-fundo: #121116;
+        --cor-superficie: #19181E;
+        --cor-texto: #ECEAE5;
+        --cor-texto-suave: #A6A1AE;
+        --cor-linha: #2D2B33;
+        --cor-linha-forte: #ECEAE5;
+        --cor-destaque: #B89CF0;
+        --cor-destaque-suave: #2A2436;
+        --cor-texto-sobre-destaque: #121116;
         --filtro-icone-escuro: invert(1);
-        --sombra-suave: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
-        --sombra-elevada: 0 2px 4px rgba(0, 0, 0, 0.35), 0 16px 40px rgba(0, 0, 0, 0.45);
     }
 }
 
 /* Tema escuro escolhido pelo botão. Os valores repetem o bloco acima de propósito. */
 :root[data-tema="escuro"]{
     color-scheme: dark;
-    --cor-fundo: #0F0B1A;
-    --cor-cartoes: #1A1429;
-    --cor-texto: #EDEAF7;
-    --cor-texto-suave: #B4ABCB;
-    --cor-roxo-principal: #A78BFA;
-    --cor-roxo-escuro: #DDD6FE;
-    --cor-roxo-claro: #2A1F47;
-    --cor-borda: #2E2547;
-    --cor-botao: #7C3AED;
-    --cor-botao-hover: #6D28D9;
-    --cor-foco: #C4B5FD;
-    --cor-topo: rgba(15, 11, 26, 0.78);
-    --cor-brilho: rgba(167, 139, 250, 0.14);
-    --opacidade-blob: 0.28;
+    --cor-fundo: #121116;
+    --cor-superficie: #19181E;
+    --cor-texto: #ECEAE5;
+    --cor-texto-suave: #A6A1AE;
+    --cor-linha: #2D2B33;
+    --cor-linha-forte: #ECEAE5;
+    --cor-destaque: #B89CF0;
+    --cor-destaque-suave: #2A2436;
+    --cor-texto-sobre-destaque: #121116;
     --filtro-icone-escuro: invert(1);
-    --sombra-suave: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
-    --sombra-elevada: 0 2px 4px rgba(0, 0, 0, 0.35), 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 
 /* ==========================================================================
-   2. ESTILOS GLOBAIS
+   2. BASE
    ========================================================================== */
 
 *{
@@ -97,7 +108,7 @@
 html{
     scroll-behavior: smooth;
     /* Evita que o menu fixo cubra o título da seção ao clicar em um link. */
-    scroll-padding-top: calc(var(--altura-topo) + 16px);
+    scroll-padding-top: calc(var(--altura-topo) + var(--espaco-4));
 }
 
 body{
@@ -105,16 +116,15 @@ body{
     margin: 0px;
     background-color: var(--cor-fundo);
     font-family: var(--fonte-texto);
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: var(--tamanho-base);
+    line-height: 1.6;
     color: var(--cor-texto);
-    transition: background-color 0.3s, color 0.3s;
 }
 
 h1, h2, h3{
-    font-family: var(--fonte-titulo);
-    line-height: 1.2;
     margin: 0px;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 p{
@@ -126,7 +136,8 @@ img{
 }
 
 a{
-    color: var(--cor-roxo-principal);
+    color: var(--cor-destaque);
+    text-underline-offset: 3px;
 }
 
 [hidden]{
@@ -134,10 +145,8 @@ a{
 }
 
 :focus-visible{
-    outline-style: solid;
-    outline-width: 3px;
-    outline-color: var(--cor-foco);
-    outline-offset: 2px;
+    outline: 2px solid var(--cor-destaque);
+    outline-offset: 3px;
 }
 
 main:focus{
@@ -166,14 +175,14 @@ main:focus{
 
 .pular-conteudo{
     position: absolute;
-    top: 8px;
-    left: 8px;
+    top: var(--espaco-2);
+    left: var(--espaco-2);
     z-index: 100;
-    padding: 10px 16px;
-    border-radius: var(--raio-pilula);
-    background-color: var(--cor-botao);
-    color: var(--cor-texto-botao);
-    font-weight: 600;
+    padding: var(--espaco-2) var(--espaco-4);
+    border-radius: var(--raio);
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+    font-weight: 500;
     text-decoration: none;
     transform: translateY(-200%);
 }
@@ -184,49 +193,216 @@ main:focus{
 
 
 /* ==========================================================================
-   3. TOPO E NAVEGAÇÃO
+   3. COMPONENTES
+   ========================================================================== */
+
+/* ---------- Rótulo: texto técnico em fonte monoespaçada ---------- */
+
+.rotulo{
+    font-family: var(--fonte-mono);
+    font-size: var(--tamanho-rotulo);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--cor-texto-suave);
+}
+
+/* ---------- Botão ---------- */
+
+.botao{
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espaco-2);
+    min-height: 44px;
+    padding: 10px 18px;
+    border: var(--borda) solid var(--cor-linha-forte);
+    border-radius: var(--raio);
+    background-color: transparent;
+    color: var(--cor-texto);
+    font-family: var(--fonte-texto);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.botao:hover{
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+}
+
+.botao-primario{
+    background-color: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+    color: var(--cor-texto-sobre-destaque);
+}
+
+.botao-primario:hover{
+    background-color: var(--cor-texto);
+    border-color: var(--cor-texto);
+}
+
+.botao-pequeno{
+    min-height: 36px;
+    padding: 6px 12px;
+    font-size: var(--tamanho-pequeno);
+}
+
+/* ---------- Especificações: lista "rótulo → valor" ---------- */
+
+.especificacoes{
+    margin: 0px;
+    border-top: var(--borda) solid var(--cor-linha-forte);
+}
+
+.especificacoes > div{
+    display: grid;
+    gap: 2px;
+    padding-block: var(--espaco-3);
+    border-bottom: var(--borda) solid var(--cor-linha);
+}
+
+.especificacoes dt{
+    padding-top: 2px;
+    font-family: var(--fonte-mono);
+    font-size: var(--tamanho-rotulo);
+    color: var(--cor-texto-suave);
+}
+
+.especificacoes dd{
+    margin: 0px;
+    font-weight: 500;
+}
+
+@media (min-width: 560px){
+    .especificacoes > div{
+        grid-template-columns: var(--largura-rotulo) minmax(0, 1fr);
+        gap: var(--espaco-4);
+    }
+}
+
+/* Quadradinho de status, como um LED. */
+.indicador{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: var(--espaco-2);
+    background-color: var(--cor-destaque);
+    vertical-align: 0.1em;
+}
+
+/* ---------- Selo ---------- */
+
+.selo{
+    display: inline-block;
+    padding: 0px 6px;
+    border: var(--borda) solid var(--cor-destaque);
+    border-radius: var(--raio);
+    color: var(--cor-destaque);
+    font-family: var(--fonte-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* ---------- Nota: bloco de texto com marcação lateral ---------- */
+
+.nota{
+    padding: var(--espaco-4) var(--espaco-5);
+    background-color: var(--cor-superficie);
+    border: var(--borda) solid var(--cor-linha);
+    border-left: 3px solid var(--cor-destaque);
+}
+
+.nota .rotulo{
+    margin-bottom: var(--espaco-2);
+}
+
+/* ---------- Tabela ---------- */
+
+.tabela{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.tabela th{
+    padding: var(--espaco-2) var(--espaco-4) var(--espaco-2) 0px;
+    border-bottom: var(--borda) solid var(--cor-linha-forte);
+    font-family: var(--fonte-mono);
+    font-size: var(--tamanho-rotulo);
+    font-weight: 400;
+    color: var(--cor-texto-suave);
+    text-align: left;
+}
+
+.tabela td{
+    padding: var(--espaco-3) var(--espaco-4) var(--espaco-3) 0px;
+    border-bottom: var(--borda) solid var(--cor-linha);
+    vertical-align: top;
+}
+
+.tabela th:last-child,
+.tabela td:last-child{
+    padding-right: 0px;
+}
+
+.tabela td + td{
+    color: var(--cor-texto-suave);
+}
+
+/* ---------- Bloco: caixa com borda (projetos e mensagens) ---------- */
+
+.bloco{
+    padding: var(--espaco-5);
+    background-color: var(--cor-fundo);
+    border: var(--borda) solid var(--cor-linha);
+    border-radius: var(--raio);
+    transition: border-color 0.15s, background-color 0.15s;
+}
+
+
+/* ==========================================================================
+   4. TOPO E NAVEGAÇÃO
    ========================================================================== */
 
 .topo{
     position: sticky;
     top: 0px;
     z-index: 10;
-    background-color: var(--cor-topo);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--cor-borda);
+    background-color: var(--cor-fundo);
+    border-bottom: var(--borda) solid var(--cor-linha);
 }
 
 .navegacao{
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--espaco-3);
     min-height: var(--altura-topo);
 }
 
 .marca{
     flex: none;
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #8B5CF6, #6D28D9);
-    color: #FFFFFF;
-    font-family: var(--fonte-titulo);
-    font-weight: 700;
+    color: var(--cor-texto);
+    font-weight: 600;
     text-decoration: none;
+}
+
+.marca-curta{
+    display: none;
+    font-family: var(--fonte-mono);
+    font-weight: 500;
 }
 
 .navegacao ul{
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 4px;
+    gap: var(--espaco-1);
     list-style: none;
-    padding: 4px;
     margin: 0px;
+    padding: var(--espaco-1);
     /* No celular, os links rolam para o lado em vez de quebrar o layout. */
     overflow-x: auto;
     scrollbar-width: none;
@@ -241,63 +417,71 @@ main:focus{
 
 .navegacao ul a{
     display: block;
-    color: var(--cor-texto);
+    padding: 6px 10px;
+    border-radius: var(--raio);
+    color: var(--cor-texto-suave);
+    font-size: 0.9375rem;
+    font-weight: 500;
     text-decoration: none;
-    padding: 8px 14px;
-    border-radius: var(--raio-pilula);
-    font-weight: 600;
-    font-size: 0.95rem;
     white-space: nowrap;
-    transition: background-color 0.2s, color 0.2s;
+    transition: color 0.15s;
 }
 
 .navegacao ul a:hover{
-    background-color: var(--cor-roxo-claro);
+    color: var(--cor-texto);
 }
 
-/* Link da seção que está visível na tela (definido pelo navegacao.js). */
+/* Link da seção visível na tela (definido pelo navegacao.js). */
 .navegacao ul a[aria-current]{
-    background-color: var(--cor-roxo-claro);
-    color: var(--cor-roxo-escuro);
+    color: var(--cor-texto);
+    box-shadow: inset 0 -2px 0 var(--cor-destaque);
 }
 
 .botao-tema{
     flex: none;
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    padding: 0px;
-    border: 1px solid var(--cor-borda);
-    border-radius: 50%;
-    background-color: var(--cor-cartoes);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espaco-2);
+    min-height: 36px;
+    padding: 6px 10px;
+    border: var(--borda) solid var(--cor-linha);
+    border-radius: var(--raio);
+    background-color: transparent;
     color: var(--cor-texto);
+    font-family: var(--fonte-mono);
+    font-size: var(--tamanho-rotulo);
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
+    transition: border-color 0.15s;
 }
 
 .botao-tema:hover{
-    background-color: var(--cor-roxo-claro);
-    transform: rotate(15deg);
+    border-color: var(--cor-texto);
 }
 
-/* Mostra a lua no tema claro e o sol no tema escuro. */
-.botao-tema .icone-sol{
-    display: none;
+/* Caixinha que fica preenchida quando o tema escuro está ligado. */
+.caixa-tema{
+    width: 10px;
+    height: 10px;
+    border: var(--borda) solid currentColor;
 }
 
-.botao-tema[aria-pressed="true"] .icone-sol{
-    display: block;
+.botao-tema[aria-pressed="true"] .caixa-tema{
+    background-color: currentColor;
 }
 
-.botao-tema[aria-pressed="true"] .icone-lua{
-    display: none;
+@media (max-width: 599px){
+    .marca-longa{
+        display: none;
+    }
+
+    .marca-curta{
+        display: inline;
+    }
 }
 
 @media (min-width: 768px){
     .navegacao ul{
-        justify-content: center;
-        gap: 8px;
+        justify-content: flex-end;
         -webkit-mask-image: none;
         mask-image: none;
     }
@@ -305,239 +489,73 @@ main:focus{
 
 
 /* ==========================================================================
-   4. HERO (APRESENTAÇÃO)
+   5. HERO
    ========================================================================== */
 
 .hero{
-    position: relative;
-    isolation: isolate;
-    padding-block: clamp(40px, 9vw, 96px);
+    display: grid;
+    gap: var(--espaco-6);
+    padding-block: clamp(32px, 7vw, 88px) clamp(40px, 6vw, 72px);
 }
 
-/* Manchas roxas desfocadas no fundo. */
-.hero-fundo{
-    position: absolute;
-    inset: 0px;
-    z-index: -1;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
-    mask-image: linear-gradient(to bottom, #000 55%, transparent);
-}
-
-.hero-fundo::before,
-.hero-fundo::after{
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: var(--opacidade-blob);
-    animation: flutuar 16s ease-in-out infinite alternate;
-}
-
-.hero-fundo::before{
-    width: 420px;
-    height: 420px;
-    top: -140px;
-    right: -100px;
-    background-color: #8B5CF6;
-}
-
-.hero-fundo::after{
-    width: 320px;
-    height: 320px;
-    bottom: 0px;
-    left: -120px;
-    background-color: #C084FC;
-    animation-delay: -8s;
-}
-
-@keyframes flutuar{
-    from{ transform: translate(0, 0) scale(1); }
-    to{ transform: translate(30px, 24px) scale(1.08); }
-}
-
-.introducao{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 28px;
-}
-
-.saudacao{
-    color: var(--cor-roxo-principal);
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-#titulo h1{
-    font-size: clamp(2rem, 1.1rem + 4.2vw, 3.5rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 12px;
+.hero h1{
+    margin-top: var(--espaco-3);
+    font-size: clamp(2.25rem, 1.2rem + 4.4vw, 4rem);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
 }
 
 .cargo{
-    font-family: var(--fonte-titulo);
-    font-size: clamp(1.1rem, 0.95rem + 0.8vw, 1.4rem);
-    font-weight: 600;
+    margin-top: var(--espaco-4);
+    margin-bottom: var(--espaco-6);
+    font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
     color: var(--cor-texto-suave);
-}
-
-.digitacao{
-    min-height: 1.65em;
-    margin-top: 12px;
-    font-size: 1.05rem;
-    color: var(--cor-texto-suave);
-}
-
-#texto-digitado{
-    color: var(--cor-roxo-principal);
-    font-weight: 600;
-}
-
-.cursor-digitacao{
-    display: inline-block;
-    width: 2px;
-    height: 1.1em;
-    margin-left: 3px;
-    vertical-align: text-bottom;
-    background-color: var(--cor-roxo-principal);
-    animation: piscar 1s steps(1) infinite;
-}
-
-@keyframes piscar{
-    50%{ opacity: 0; }
 }
 
 .acoes{
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 28px;
+    gap: var(--espaco-3);
+    margin-top: var(--espaco-6);
 }
 
-.foto-anel{
-    flex: none;
-    width: clamp(140px, 38vw, 260px);
-    padding: 5px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #C4B5FD, #7C3AED 50%, #3B0764);
-    box-shadow: 0 18px 50px rgba(109, 40, 217, 0.35);
+.hero-foto{
+    width: 160px;
+    margin: 0px;
+    /* No celular, a foto vem antes do texto. */
+    order: -1;
 }
 
-.foto-anel img{
+.hero-foto img{
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 1;
-    border: 4px solid var(--cor-fundo);
-    border-radius: 50%;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
-    object-position: 50% 25%;
+    object-position: 50% 30%;
+    border: var(--borda) solid var(--cor-linha-forte);
+    border-radius: var(--raio);
+}
+
+.hero-foto figcaption{
+    margin-top: var(--espaco-2);
+    font-family: var(--fonte-mono);
+    font-size: 0.75rem;
+    color: var(--cor-texto-suave);
 }
 
 @media (min-width: 768px){
-    .introducao{
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 48px;
+    .hero{
+        grid-template-columns: minmax(0, 1fr) clamp(220px, 26vw, 300px);
+        gap: var(--espaco-8);
+        align-items: start;
     }
-}
 
-
-/* ==========================================================================
-   5. BOTÕES, CARTÕES E SELOS (PEÇAS REUTILIZÁVEIS)
-   ========================================================================== */
-
-.botao{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 22px;
-    border: 2px solid transparent;
-    border-radius: var(--raio-pilula);
-    font-family: var(--fonte-texto);
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-
-.botao:hover{
-    transform: translateY(-2px);
-}
-
-.botao-primario{
-    background-color: var(--cor-botao);
-    color: var(--cor-texto-botao);
-    box-shadow: 0 8px 20px rgba(109, 40, 217, 0.3);
-}
-
-.botao-primario:hover{
-    background-color: var(--cor-botao-hover);
-}
-
-.botao-secundario{
-    background-color: var(--cor-cartoes);
-    border-color: var(--cor-borda);
-    color: var(--cor-texto);
-}
-
-.botao-secundario:hover{
-    border-color: var(--cor-roxo-principal);
-}
-
-.botao-pequeno{
-    padding: 8px 16px;
-    font-size: 0.9rem;
-}
-
-.cartao{
-    position: relative;
-    overflow: hidden;
-    padding: 24px;
-    background-color: var(--cor-cartoes);
-    border: 1px solid var(--cor-borda);
-    border-radius: var(--raio-cartao);
-    box-shadow: var(--sombra-suave);
-    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s, background-color 0.3s;
-}
-
-/* Efeito "spotlight": um brilho que segue o mouse.
-   As variáveis --x e --y são atualizadas pelo animacoes.js. */
-.cartao::before{
-    content: "";
-    position: absolute;
-    inset: 0px;
-    background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), var(--cor-brilho), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-}
-
-.cartao > *{
-    position: relative;
-}
-
-@media (hover: hover){
-    .cartao:hover::before{
-        opacity: 1;
+    .hero-foto{
+        width: auto;
+        order: 0;
+        margin-top: var(--espaco-6);
     }
-}
-
-.selo{
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: var(--raio-pilula);
-    background-color: var(--cor-roxo-claro);
-    color: var(--cor-roxo-escuro);
-    font-family: var(--fonte-texto);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    vertical-align: middle;
 }
 
 
@@ -545,241 +563,157 @@ main:focus{
    6. SEÇÕES
    ========================================================================== */
 
+/* Numeração automática das seções (01, 02...). Seções ocultas não contam. */
+main{
+    counter-reset: secao;
+}
+
 .secao{
-    padding-block: clamp(36px, 6vw, 64px);
+    counter-increment: secao;
+    padding-block: clamp(40px, 6vw, 72px);
+}
+
+.secao-grade{
+    display: grid;
+    gap: var(--espaco-5);
+    padding-top: var(--espaco-5);
+    border-top: var(--borda) solid var(--cor-linha-forte);
+}
+
+.secao-numero{
+    display: block;
+    margin-bottom: var(--espaco-1);
+    font-family: var(--fonte-mono);
+    font-size: var(--tamanho-rotulo);
+    color: var(--cor-destaque);
+}
+
+.secao-numero::before{
+    content: counter(secao, decimal-leading-zero);
 }
 
 .secao h2{
-    font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.1rem);
-    letter-spacing: -0.01em;
-    margin-bottom: 24px;
+    font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+    letter-spacing: -0.02em;
 }
 
-/* Pequena barra roxa abaixo do título da seção. */
-.secao h2::after{
-    content: "";
-    display: block;
-    width: 48px;
-    height: 4px;
-    margin-top: 10px;
-    border-radius: var(--raio-pilula);
-    background: linear-gradient(90deg, #8B5CF6, #6D28D9);
+.secao-corpo{
+    min-width: 0;
+    max-width: var(--largura-texto);
 }
 
-.secao h3{
-    font-size: 1.1rem;
+.secao-corpo-larga{
+    max-width: none;
+}
+
+.subtitulo{
+    margin-top: var(--espaco-7);
+    margin-bottom: var(--espaco-3);
+    font-size: var(--tamanho-base);
 }
 
 .descricao-secao{
-    margin-top: -8px;
-    margin-bottom: 24px;
+    margin-bottom: var(--espaco-5);
     color: var(--cor-texto-suave);
+}
+
+@media (min-width: 900px){
+    .secao-grade{
+        grid-template-columns: 200px minmax(0, 1fr);
+        gap: var(--espaco-7);
+    }
+
+    /* O título acompanha a rolagem enquanto a seção está na tela. */
+    .secao-cabecalho{
+        position: sticky;
+        top: calc(var(--altura-topo) + var(--espaco-5));
+        align-self: start;
+    }
 }
 
 /* ---------- Sobre mim ---------- */
 
-#sobre-mim > p{
-    max-width: 68ch;
-    font-size: 1.1rem;
+.texto-destaque{
+    font-size: var(--tamanho-destaque);
+    line-height: 1.65;
 }
 
 #objetivo{
-    max-width: 68ch;
-    margin-top: 24px;
-    border-left: 4px solid var(--cor-roxo-principal);
+    margin-top: var(--espaco-6);
 }
 
-#objetivo h3{
-    margin-bottom: 8px;
-}
+/* ---------- Jornada ---------- */
 
-/* ---------- Jornada (linha do tempo) ---------- */
-
-.linha-do-tempo{
+.registro{
     list-style: none;
     margin: 0px;
     padding: 0px;
-    max-width: 68ch;
+    border-top: var(--borda) solid var(--cor-linha-forte);
 }
 
-.linha-do-tempo li{
-    position: relative;
-    padding-left: 36px;
-    padding-bottom: 28px;
+.registro li{
+    display: grid;
+    gap: var(--espaco-1);
+    padding-block: var(--espaco-4);
+    border-bottom: var(--borda) solid var(--cor-linha);
 }
 
-/* Marcador (bolinha). */
-.linha-do-tempo li::before{
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 5px;
-    width: 14px;
-    height: 14px;
-    border: 3px solid var(--cor-roxo-principal);
-    border-radius: 50%;
-    background-color: var(--cor-fundo);
-}
-
-/* Linha que liga um marcador ao próximo. */
-.linha-do-tempo li::after{
-    content: "";
-    position: absolute;
-    left: 6px;
-    top: 24px;
-    bottom: 0px;
-    width: 2px;
-    background-color: var(--cor-borda);
-}
-
-.linha-do-tempo li:last-child{
-    padding-bottom: 0px;
-}
-
-.linha-do-tempo li:last-child::after{
-    display: none;
-}
-
-.linha-do-tempo .marco-atual::before{
-    background-color: var(--cor-roxo-principal);
-    box-shadow: 0 0 0 5px var(--cor-brilho);
-}
-
-.linha-do-tempo .marco-futuro::before{
-    border-style: dashed;
-}
-
-.linha-do-tempo time{
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--cor-roxo-principal);
-}
-
-.linha-do-tempo h3{
-    margin-block: 4px;
-}
-
-.linha-do-tempo p{
+.registro .data{
+    padding-top: 2px;
+    font-family: var(--fonte-mono);
+    font-size: var(--tamanho-pequeno);
     color: var(--cor-texto-suave);
 }
 
-#cursos{
-    max-width: 68ch;
-    margin-top: 32px;
+.registro h3{
+    font-size: 1.0625rem;
 }
 
-#cursos h3{
-    margin-bottom: 12px;
+.registro p{
+    margin-top: var(--espaco-1);
+    color: var(--cor-texto-suave);
 }
 
-.lista-cursos{
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-}
-
-.lista-cursos li{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 4px 16px;
-    padding-block: 10px;
-    border-top: 1px solid var(--cor-borda);
+.registro .atual .data{
+    color: var(--cor-destaque);
     font-weight: 500;
 }
 
-.lista-cursos li:first-child{
-    border-top: 0px;
-    padding-top: 0px;
-}
-
-.lista-cursos li:last-child{
-    padding-bottom: 0px;
-}
-
-.lista-cursos span{
+.registro .futuro h3{
     color: var(--cor-texto-suave);
-    font-weight: 400;
 }
 
-/* Em telas largas, "Sobre Mim" e "Minha Jornada" ficam em duas colunas. */
-@media (min-width: 900px){
-    .secao-dupla{
-        display: grid;
-        grid-template-columns: 1.15fr 1fr;
-        column-gap: 48px;
-        align-items: start;
-    }
-
-    .secao-dupla h2{
-        grid-column: 1 / -1;
-    }
-
-    .secao-dupla #objetivo,
-    .secao-dupla #cursos{
-        margin-top: 0px;
+@media (min-width: 560px){
+    .registro li{
+        grid-template-columns: var(--largura-rotulo) minmax(0, 1fr);
+        gap: var(--espaco-4);
     }
 }
 
 /* ---------- Habilidades ---------- */
 
-.grupos-habilidades{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 16px;
-}
-
-.grupo-habilidade h3{
+.tecnologias{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-.grupo-estudando{
-    border-style: dashed;
-    border-color: var(--cor-roxo-principal);
-}
-
-#habilidades ul{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 12px;
+    gap: var(--espaco-2) var(--espaco-5);
     list-style: none;
     margin: 0px;
     padding: 0px;
 }
 
-#habilidades figure{
-    width: 92px;
-    margin: 0px;
-    padding: 14px 8px 10px;
-    border-radius: 12px;
-    background-color: var(--cor-fundo);
-    border: 1px solid var(--cor-borda);
-    text-align: center;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: transform 0.2s, border-color 0.2s, background-color 0.3s;
+.tecnologias li{
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espaco-2);
 }
 
-#habilidades figure:hover{
-    transform: translateY(-4px);
-    border-color: var(--cor-roxo-principal);
-}
-
-.imagem img{
-    display: block;
-    width: 48px;
-    height: 48px;
-    margin: 0px auto 6px;
+.tecnologias img{
+    width: 20px;
+    height: 20px;
 }
 
 /* O ícone do GitHub é preto. No tema escuro, ele é invertido para ficar visível. */
-#icone-github img{
+.icone-github{
     filter: var(--filtro-icone-escuro);
 }
 
@@ -787,8 +721,8 @@ main:focus{
 
 .grade-projetos{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: var(--espaco-4);
     list-style: none;
     margin: 0px;
     padding: 0px;
@@ -797,22 +731,22 @@ main:focus{
 .cartao-projeto{
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--espaco-3);
     height: 100%;
 }
 
 .cartao-projeto:hover{
-    transform: translateY(-4px);
-    box-shadow: var(--sombra-elevada);
-    border-color: var(--cor-roxo-principal);
+    border-color: var(--cor-linha-forte);
 }
 
 .cartao-projeto h3{
+    font-size: 1.0625rem;
     overflow-wrap: anywhere;
 }
 
 .cartao-projeto .descricao{
     flex: 1;
+    font-size: 0.9375rem;
     color: var(--cor-texto-suave);
 }
 
@@ -829,8 +763,11 @@ main:focus{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 4px 14px;
-    font-size: 0.85rem;
+    gap: var(--espaco-1) var(--espaco-4);
+    padding-top: var(--espaco-3);
+    border-top: var(--borda) solid var(--cor-linha);
+    font-family: var(--fonte-mono);
+    font-size: 0.75rem;
     color: var(--cor-texto-suave);
 }
 
@@ -840,46 +777,45 @@ main:focus{
     gap: 6px;
 }
 
+/* Quadradinho com a cor da linguagem (mesma cor usada pelo GitHub). */
 .cor-linguagem{
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--cor-roxo-principal);
+    width: 8px;
+    height: 8px;
+    background-color: var(--cor-texto-suave);
 }
 
 .acoes-projeto{
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: var(--espaco-2);
 }
 
 .mensagem-projetos{
-    max-width: 68ch;
+    max-width: var(--largura-texto);
 }
 
 .mensagem-projetos p{
-    margin-bottom: 12px;
+    margin-bottom: var(--espaco-3);
 }
 
-/* Cartões "esqueleto", exibidos enquanto os dados carregam. */
+/* Blocos "esqueleto", exibidos enquanto os dados carregam. */
 .esqueleto{
     min-height: 190px;
 }
 
 .esqueleto span{
     display: block;
-    height: 14px;
-    margin-bottom: 14px;
-    border-radius: var(--raio-pilula);
-    background: linear-gradient(90deg, var(--cor-roxo-claro) 25%, var(--cor-borda) 50%, var(--cor-roxo-claro) 75%);
+    height: 12px;
+    margin-bottom: var(--espaco-4);
+    background: linear-gradient(90deg, var(--cor-linha) 25%, var(--cor-superficie) 50%, var(--cor-linha) 75%);
     background-size: 200% 100%;
     animation: brilhar 1.4s linear infinite;
 }
 
-.esqueleto span:nth-child(1){ width: 55%; height: 20px; }
+.esqueleto span:nth-child(1){ width: 55%; height: 18px; }
 .esqueleto span:nth-child(2){ width: 100%; }
 .esqueleto span:nth-child(3){ width: 80%; }
-.esqueleto span:nth-child(4){ width: 40%; margin-top: 32px; }
+.esqueleto span:nth-child(4){ width: 40%; margin-top: var(--espaco-6); }
 
 @keyframes brilhar{
     from{ background-position: 200% 0; }
@@ -893,41 +829,55 @@ address{
 }
 
 .lista-contato{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    gap: 16px;
     list-style: none;
     margin: 0px;
     padding: 0px;
+    border-top: var(--borda) solid var(--cor-linha-forte);
 }
 
 .lista-contato a{
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    height: 100%;
-    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 2px var(--espaco-4);
+    padding-block: var(--espaco-4);
+    border-bottom: var(--borda) solid var(--cor-linha);
     color: var(--cor-texto);
     text-decoration: none;
 }
 
-.lista-contato a:hover{
-    transform: translateY(-4px);
-    box-shadow: var(--sombra-elevada);
-    border-color: var(--cor-roxo-principal);
-}
-
 .lista-contato .rotulo{
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--cor-roxo-principal);
+    grid-column: 1 / -1;
 }
 
 .lista-contato .valor{
-    font-weight: 600;
+    font-weight: 500;
     overflow-wrap: anywhere;
+}
+
+.lista-contato .seta{
+    color: var(--cor-texto-suave);
+    transition: transform 0.15s, color 0.15s;
+}
+
+.lista-contato a:hover .valor,
+.lista-contato a:hover .seta{
+    color: var(--cor-destaque);
+}
+
+.lista-contato a:hover .seta{
+    transform: translateX(4px);
+}
+
+@media (min-width: 560px){
+    .lista-contato a{
+        grid-template-columns: var(--largura-rotulo) minmax(0, 1fr) auto;
+        gap: var(--espaco-4);
+    }
+
+    .lista-contato .rotulo{
+        grid-column: auto;
+    }
 }
 
 
@@ -936,35 +886,32 @@ address{
    ========================================================================== */
 
 #rodape{
-    margin-top: 32px;
-    padding-block: 28px;
-    border-top: 1px solid var(--cor-borda);
-    text-align: center;
-    font-size: 0.9rem;
+    margin-top: var(--espaco-6);
+    padding-block: var(--espaco-5);
+    border-top: var(--borda) solid var(--cor-linha);
+    font-family: var(--fonte-mono);
+    font-size: 0.75rem;
     color: var(--cor-texto-suave);
 }
 
-
-/* ==========================================================================
-   8. ANIMAÇÃO AO ROLAR A PÁGINA
-   A classe "com-animacoes" é adicionada ao <html> pelo animacoes.js.
-   Sem JavaScript, o conteúdo aparece normalmente.
-   ========================================================================== */
-
-.com-animacoes [data-revelar]{
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.rodape-conteudo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--espaco-2) var(--espaco-5);
 }
 
-.com-animacoes [data-revelar].visivel{
-    opacity: 1;
-    transform: none;
+#rodape a{
+    color: inherit;
+}
+
+#rodape a:hover{
+    color: var(--cor-destaque);
 }
 
 
 /* ==========================================================================
-   9. EASTER EGG
+   8. EASTER EGG
    ========================================================================== */
 
 .tela-confete{
@@ -979,22 +926,22 @@ address{
 .aviso-segredo{
     position: fixed;
     left: 50%;
-    bottom: 24px;
+    bottom: var(--espaco-5);
     z-index: 201;
     max-width: calc(100% - 32px);
-    padding: 12px 20px;
-    border-radius: var(--raio-pilula);
-    background-color: var(--cor-botao);
-    color: var(--cor-texto-botao);
-    font-weight: 600;
+    padding: var(--espaco-3) var(--espaco-5);
+    border-radius: var(--raio);
+    background-color: var(--cor-texto);
+    color: var(--cor-fundo);
+    font-family: var(--fonte-mono);
+    font-size: var(--tamanho-pequeno);
     text-align: center;
-    box-shadow: var(--sombra-elevada);
     transform: translateX(-50%);
 }
 
 
 /* ==========================================================================
-   10. MOVIMENTO REDUZIDO
+   9. MOVIMENTO REDUZIDO
    Desliga animações para quem ativou essa preferência no sistema.
    ========================================================================== */
 

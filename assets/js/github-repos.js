@@ -175,7 +175,7 @@
     function criarCartao(repo) {
         const nome = formatarNome(repo.nome);
         const item = document.createElement('li');
-        const cartao = criarElemento('article', 'cartao cartao-projeto');
+        const cartao = criarElemento('article', 'bloco cartao-projeto');
 
         cartao.appendChild(criarElemento('h3', '', nome));
         cartao.appendChild(criarElemento('p', 'descricao', repo.descricao || 'Sem descrição.'));
@@ -222,7 +222,7 @@
         cartao.appendChild(dados);
 
         const acoes = criarElemento('div', 'acoes-projeto');
-        acoes.appendChild(criarLinkExterno('Código', repo.url, 'botao botao-secundario botao-pequeno', nome));
+        acoes.appendChild(criarLinkExterno('Código', repo.url, 'botao botao-pequeno', nome));
         if (ehEnderecoWeb(repo.site)) {
             acoes.appendChild(criarLinkExterno('Ver online', repo.site, 'botao botao-primario botao-pequeno', nome));
         }
@@ -248,7 +248,7 @@
         grade.setAttribute('aria-hidden', 'true');
         for (let i = 0; i < 3; i += 1) {
             const item = document.createElement('li');
-            const esqueleto = criarElemento('div', 'cartao esqueleto');
+            const esqueleto = criarElemento('div', 'bloco esqueleto');
             for (let linha = 0; linha < 4; linha += 1) {
                 esqueleto.appendChild(document.createElement('span'));
             }
@@ -275,10 +275,10 @@
         lista.setAttribute('aria-busy', 'false');
         limparLista();
 
-        const caixa = criarElemento('div', 'cartao mensagem-projetos');
+        const caixa = criarElemento('div', 'bloco mensagem-projetos');
         caixa.appendChild(criarElemento('p', '', 'Não consegui carregar os projetos agora. Você pode ver todos direto no GitHub.'));
 
-        const link = criarElemento('a', 'botao botao-secundario botao-pequeno', 'Abrir meu GitHub');
+        const link = criarElemento('a', 'botao botao-pequeno', 'Abrir meu GitHub');
         link.href = URL_PERFIL;
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
