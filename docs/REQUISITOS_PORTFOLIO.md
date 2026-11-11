@@ -40,7 +40,8 @@ João possui contato com HTML, CSS básico, Python, Java e Git. Este portfólio 
 - A primeira versão é estática, construída com HTML, CSS e JavaScript, sem bibliotecas.
 - A página possui apresentação, sobre mim, jornada, habilidades, projetos, contatos e rodapé.
 - O layout é responsivo e possui tema claro e escuro.
-- O JavaScript passou a ter necessidades concretas: buscar os repositórios no GitHub, alternar o tema e criar as animações.
+- A identidade visual segue o conceito "ficha técnica", documentado em `docs/DESIGN.md`.
+- O JavaScript passou a ter necessidades concretas: buscar os repositórios no GitHub, alternar o tema e destacar a seção atual no menu.
 - A seção de projetos lê os repositórios públicos do GitHub marcados com o topic `portfolio`. Ela fica oculta enquanto nenhum repositório tiver esse topic.
 - Os cartões de projeto ainda levam ao GitHub. As páginas detalhadas (seção 5.2) continuam pendentes.
 - O plano dessas melhorias está em `docs/PLANO_IMPLEMENTACAO.md`.

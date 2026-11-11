@@ -18,13 +18,14 @@ O projeto está em desenvolvimento.
 
 A página principal já possui:
 
-- apresentação com foto, botões de ação e efeito de digitação;
+- apresentação com foto e ficha de dados (local, formação, foco e status);
 - seção "Sobre Mim" com objetivo profissional;
 - linha do tempo "Minha Jornada" e cursos concluídos;
 - habilidades organizadas por grupo;
 - projetos carregados automaticamente do GitHub;
 - canais de contato;
 - tema claro e escuro;
+- design system próprio, documentado em `docs/DESIGN.md`;
 - layout responsivo para celulares, tablets e computadores.
 
 ## Tecnologias utilizadas
@@ -34,7 +35,7 @@ A página principal já possui:
 - JavaScript (sem bibliotecas ou frameworks);
 - Git e GitHub.
 
-O JavaScript é usado para buscar os repositórios no GitHub, alternar o tema e criar as animações. A página continua legível com o JavaScript desligado.
+O JavaScript é usado para buscar os repositórios no GitHub, alternar o tema e destacar a seção atual no menu. A página continua legível com o JavaScript desligado.
 
 ## Como um projeto aparece no portfólio
 
@@ -64,10 +65,9 @@ Portifolio-pessoal/
 │   ├── icons/
 │   ├── images/
 │   │   ├── eu.jpeg
+│   │   ├── favicon.svg
 │   │   └── og-preview.png
 │   └── js/
-│       ├── animacoes.js
-│       ├── digitacao.js
 │       ├── easter-egg.js
 │       ├── github-repos.js
 │       ├── navegacao.js
@@ -75,6 +75,7 @@ Portifolio-pessoal/
 │       └── tema.js
 ├── docs/
 │   ├── Curriculo_Joao_Francisco.pdf
+│   ├── DESIGN.md
 │   ├── PLANO_IMPLEMENTACAO.md
 │   └── REQUISITOS_PORTFOLIO.md
 ├── index.html
@@ -84,16 +85,14 @@ Portifolio-pessoal/
 - `index.html`: estrutura e conteúdo da página principal.
 - `assets/css`: estilos visuais do portfólio.
 - `assets/icons`: ícones utilizados na seção de habilidades.
-- `assets/images`: foto pessoal e imagem de prévia para compartilhamento.
+- `assets/images`: foto pessoal, ícone da aba (favicon) e imagem de prévia para compartilhamento.
 - `assets/js`: um arquivo por funcionalidade.
   - `tema.js`: alterna entre tema claro e escuro e lembra a escolha.
   - `navegacao.js`: destaca no menu a seção visível.
-  - `digitacao.js`: efeito de digitação na apresentação.
   - `github-repos.js`: busca os repositórios e cria os cartões de projeto.
-  - `animacoes.js`: seções que aparecem ao rolar e brilho nos cartões.
   - `rodape.js`: mantém o ano do rodapé atualizado.
   - `easter-egg.js`: uma surpresa escondida.
-- `docs`: currículo, requisitos e plano de implementação.
+- `docs`: currículo, design system, requisitos e plano de implementação.
 
 ## Como visualizar localmente
 
@@ -120,6 +119,8 @@ Os recursos planejados serão implementados gradualmente e podem mudar durante o
 Os requisitos e as decisões do produto estão registrados em [`docs/REQUISITOS_PORTFOLIO.md`](docs/REQUISITOS_PORTFOLIO.md).
 
 O plano das melhorias visuais e da integração com o GitHub está em [`docs/PLANO_IMPLEMENTACAO.md`](docs/PLANO_IMPLEMENTACAO.md).
+
+As regras visuais (cores, fontes, espaçamentos e componentes) estão em [`docs/DESIGN.md`](docs/DESIGN.md).
 
 ## Autor
 

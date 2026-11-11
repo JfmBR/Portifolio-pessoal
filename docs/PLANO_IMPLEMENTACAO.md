@@ -19,6 +19,25 @@
 - **Layout:** "Sobre Mim" e "Minha Jornada" usam duas colunas em telas largas.
 - **Linha do tempo:** usa as datas do currículo e do histórico do Git. Os cursos ficaram em uma lista sem data.
 
+### Revisão visual (novembro de 2026)
+
+O primeiro visual ficou genérico, com "cara de template". Ele foi substituído pelo conceito **"ficha técnica"**, definido em `docs/DESIGN.md`.
+
+O que saiu:
+- manchas desfocadas, gradientes, anel brilhante na foto e sombras;
+- efeito de digitação (`digitacao.js`);
+- animação ao rolar e brilho que segue o mouse (`animacoes.js`);
+- fontes Sora e Inter, substituídas por IBM Plex Sans e IBM Plex Mono;
+- roxo padrão do Tailwind (`#6D28D9`), substituído por `#5B2A8C`.
+
+O que entrou:
+- ficha de dados no hero (local, formação, foco e status);
+- seções numeradas automaticamente, com título à esquerda;
+- jornada em formato de histórico, cursos em tabela e habilidades em lista de especificações;
+- favicon próprio.
+
+Por isso, algumas tarefas das fases 2 e 4 descritas abaixo não valem mais. O `docs/DESIGN.md` tem prioridade sobre este plano em decisões visuais.
+
 ## 0. Visão geral
 
 | Fase | Tema | Resultado esperado |
