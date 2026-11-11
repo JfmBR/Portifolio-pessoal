@@ -22,7 +22,8 @@
         'Monitor-Postura-YOLO': [
             ['Contexto', 'Projeto da faculdade em que eu precisava trabalhar com visão computacional.'],
             ['Desafio', 'Montar a lógica por trás do código.'],
-            ['Aprendizado', 'Aprendi a usar muitas bibliotecas do Python.']
+            ['Aprendizado', 'Aprendi a usar muitas bibliotecas do Python.'],
+            ['Uso de IA', 'Desenvolvido com apoio de IA.']
         ]
     };
 
